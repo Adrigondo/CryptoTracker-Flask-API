@@ -16,9 +16,12 @@ db = mongo.db.users
 @app.route("/users", methods=["POST"])
 def createUser():
   user = request.json
-  id = db.insert(user)
+  try:
+    id = db.insert(user)
+    return jsonify(str(ObjectId(id)))
+  except error:
+    return (str(error))
   # print(request.json)
-  return jsonify(str(ObjectId(id)))
   # return "Recibido"
 
 
