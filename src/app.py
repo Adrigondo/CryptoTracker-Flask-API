@@ -36,7 +36,7 @@ def getUsers():
 @app.route("/users/<username>", methods=["GET"])
 def getUser(username):
   user = db.find_one({"username": username})
-  user["username"] = str(Objectusername(user["username"])),
+  user["_id"] = str(ObjectId(user["_id"]))
   return jsonify(user)
 
 
