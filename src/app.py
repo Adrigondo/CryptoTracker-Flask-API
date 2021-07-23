@@ -48,7 +48,7 @@ def deleteUser(id):
 
 @app.route("/users/<username>", methods=["PUT"])
 def updateUser(username):
-  db.update_one({"username": username, {"$set": request.json})
+  db.update_one({"username": username}, {"$set": request.json})
   return jsonify({"msg": "User updated"})
 
 
