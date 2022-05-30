@@ -12,6 +12,12 @@ CORS(app)
 
 db = mongo.db.users
 
+@app.route("/", methods=["GET"])
+def menu():
+  try:
+    return "API Flask - Crypto Tracker"
+  except error:
+    return (str(error))
 
 @app.route("/users", methods=["POST"])
 def createUser():
